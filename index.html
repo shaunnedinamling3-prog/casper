@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fce4ec, #e3f2fd);
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      width: 300px;
+      position: relative;
+    }
+
+    h1 {
+      font-family: cursive;
+      color: #3f51b5;
+      margin-bottom: 15px;
+    }
+
+    .emojis {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      padding: 10px 25px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #yesBtn {
+      background: #5c6bc0;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      background: #3f51b5;
+    }
+
+    #noBtn {
+      background: #e0e0e0;
+      color: #333;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="emojis">💙 ❤️ 💙 ❤️ 💙</div>
+    <h1>Can you be my Valentine?</h1>
+    <div class="emojis">🌸 🌼 🌻 🌷 🌹</div>
+
+    <div class="buttons">
+      <button id="yesBtn">YES</button>
+      <button id="noBtn">NO</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    // Move NO button randomly
+    noBtn.addEventListener("mouseover", () => {
+      const card = document.querySelector(".card");
+      const maxX = card.clientWidth - noBtn.clientWidth;
+      const maxY = card.clientHeight - noBtn.clientHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    // YES button action
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1 style="color:#e91e63; font-family:cursive;">
+          Yay! 💖 Happy Valentine’s Day 😍
+        </h1>
+      `;
+    });
+  </script>
+
+</body>
+</html>
